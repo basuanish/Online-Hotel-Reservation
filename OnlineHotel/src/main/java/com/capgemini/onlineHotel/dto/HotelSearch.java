@@ -13,6 +13,7 @@ public class HotelSearch {
 	public HotelSearch() {
 		
 	}
+	
 	public HotelSearch(String hotelName, String location, Date checkInDate, Date checkOutDate) {
 		super();
 		this.hotelName = hotelName;
