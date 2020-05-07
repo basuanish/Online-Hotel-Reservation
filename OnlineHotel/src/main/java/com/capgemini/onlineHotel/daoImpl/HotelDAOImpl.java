@@ -11,13 +11,12 @@ import com.capgemini.onlineHotel.utils.MyBatisUtil;
 public class HotelDAOImpl implements HotelDAO {
 
 	public HotelEntity searchHotel(HotelSearch search) {
-		 SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
-		 try{
-			  HotelMapper hotelMapper = session.getMapper(HotelMapper.class);
-			  return hotelMapper.searchHotel(search);
+		SqlSession session = MyBatisUtil.getSqlSessionFactory().openSession();
+		try {
+			HotelMapper hotelMapper = session.getMapper(HotelMapper.class);
+			return hotelMapper.searchHotel(search);
+		} finally {
+			session.close();
+		}
 	}
-		 finally{
-			   session.close();
-			  }
-}
 }
