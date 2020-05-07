@@ -40,6 +40,76 @@
                     </var>
             </field>
         </form>
+        
+        <form name="SearchHotelsForm">
+        	<field property="hotelName" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.hotel.hotelName.required" />
+                <msg name="maxlength" key="error.hotel.hotelName.length" />
+                <msg name="minlength" key="error.hotel.hotelName.length" />
+                <msg name="mask" key="error.hotel.hotelName.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>15</var-value>
+                </var>
+ 
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+ 
+            </field>
+            
+            <field property="location" depends="required,maxlength,minlength,mask">
+ 
+                <msg name="required" key="error.hotel.location.required" />
+                <msg name="maxlength" key="error.hotel.location.length" />
+                <msg name="minlength" key="error.hotel.location.length" />
+                <msg name="mask" key="error.hotel.location.invalid" />
+ 
+                <arg name="maxlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="maxlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <arg name="minlength" key="${var:minlength}" position="0"
+                    resource="false" />
+                <arg name="minlength" key="${var:maxlength}" position="1"
+                    resource="false" />
+ 
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>15</var-value>
+                </var>
+ 
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+ 
+            </field>
+            
+            
+        </form>
 
     </formset>
 
