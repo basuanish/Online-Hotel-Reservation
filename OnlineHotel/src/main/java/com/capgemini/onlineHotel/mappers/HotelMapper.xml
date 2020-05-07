@@ -4,22 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.capgemini.onlineHotel.mappers.HotelMapper" >
 	
-	<select id="searchHotel" resultType="hotel" parameterType="int" resultMap="hotelResult">
+	<resultMap id="hotelResult" type="com.capgemini.onlineHotel.dto.HotelEntity">
+		<id property="hotelId" column="HOTEL_ID" />
+		<result property="hotelName" column="HOTEL_NAME"/>
+		<result property="location" column="ADDRESS"/>
+	</resultMap>
+	<select id="searchHotel" resultMap="hotelResult">
 	    SELECT * from hotel WHERE hotelName = #{hotelName} OR location = #{location}
 	</select>
 	
-	<resultMap id="hotelResult" type="hotel">
-		<id property="hotelId" column="id" />
-		<result property="hotelName" column="name"/>
-		<result property="location" column="district"/>
-	</resultMap>
-	<insert id="insertVillage" parameterType="village"  keyProperty="id" useGeneratedKeys="true">
-		INSERT into village(name,district) VALUES(#{name}, #{district}) 	    
-	</insert>
-	<update id="updateVillage" parameterType="village">
-		UPDATE village SET name=#{name}, district =#{district} WHERE id =#{id}  	    
-	</update>
-	<delete id="deleteVillage" parameterType="int">
-		DELETE FROM village WHERE id =#{id}  	    
-	</delete>
+	
 </mapper> 

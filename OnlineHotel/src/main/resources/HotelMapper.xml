@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.capgemini.onlineHotel.mappers.HotelMapper" >
+	
+	<select id="searchHotel" resultType="hotel" resultMap="hotelResult">
+	    SELECT * from hotel WHERE hotelName = #{hotelName} OR location = #{location}
+	</select>
+	
+	<resultMap id="hotelResult" type="hotel">
+		<id property="hotelId" column="HOTEL_ID" />
+		<result property="hotelName" column="HOTEL_NAME"/>
+		<result property="location" column="ADDRESS"/>
+	</resultMap>
+	<insert id="insertVillage" parameterType="village"  keyProperty="id" useGeneratedKeys="true">
+		INSERT into village(name,district) VALUES(#{name}, #{district}) 	    
+	</insert>
+	<update id="updateVillage" parameterType="village">
+		UPDATE village SET name=#{name}, district =#{district} WHERE id =#{id}  	    
+	</update>
+	<delete id="deleteVillage" parameterType="int">
+		DELETE FROM village WHERE id =#{id}  	    
+	</delete>
+</mapper> 

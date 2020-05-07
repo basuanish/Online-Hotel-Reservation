@@ -4,9 +4,10 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.apache.struts.action.ActionForm;
 import org.apache.struts.validator.ValidatorForm;
 
-public class SearchHotelsForm extends ValidatorForm {
+public class SearchHotelsForm extends ActionForm {
 
 	
 	private static final long serialVersionUID = 8040788229846304723L;

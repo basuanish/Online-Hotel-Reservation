@@ -1,0 +1,1 @@
+var cal1x = new CalendarPopup("testdiv1");     cal1x.showNavigationDropdowns( );     cal1x.setYearSelectStartOffset(60);   

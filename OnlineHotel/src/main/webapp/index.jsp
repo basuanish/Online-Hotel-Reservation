@@ -14,16 +14,16 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   
-  <script language="JavaScript" type="text/javascript" id="jscal1x">
-  var cal1x = new CalendarPopup("testdiv1");
-  cal1x.showNavigationDropdowns( );
-  cal1x.setYearSelectStartOffset(60);
-  </script> 
-<title>Search Hotels Page</title>
- <script language="JavaScript" src="scripts/CalendarPopup.js"></script> 
- <!-- This prints out the default stylehseets used by the    
- DIV style calendar. Only needed if you are using the DIV style popup --> 
- <script language="JavaScript">document.write(getCalendarStyles( )); </script> 
+ 
+<title>Search Hotels Page</title> 
+ <script>
+  $( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+  $( function() {
+	    $( "#datepicker2" ).datepicker();
+	  } );
+  </script>
 </head>
 <body>
 	<!--  %@ include file="header.jsp"%!-->
@@ -33,45 +33,32 @@
 
 	<div id="content">
 		<div id="content-box">
-			<html:form action="searchHotels" method="post">
+			<html:form action="/searchHotels">
 				<table height="230" align="center" cellspacing="10" cellpadding="8">
 
 					<tr>
 						<td>Hotel Name :</td>
-						<td><html:text name="SearchHotelsForm" property="hotelName" /></td>
+						<td><html:text property="hotelName" /></td>
 					
 						<td>Location :</td>
-						<td><html:text name="SearchHotelsForm" property="location" /></td>
+						<td><html:text property="location" /></td>
 					</tr>
 					
 					<tr>
+						
 						<td>Check In Date : </td>
-						<td> <html:text size="8" property="checkInDate"/>
-						   <a href="" onClick="cal1x.select(document.forms[0].checkInDate,
-							'anchor1x','MM/dd/yyyy'); return false;" 
-							TITLE="cal1x.select(document.forms[0].checkInDate,'anchor1x','MM/dd/yyyy');
-							 return false;" 
-							  NAME="anchor1x" ID="anchor1x">select</a>
-							  <br />
-							   <c:if test="${not empty checkInDate}">
-							    Check In Date: <b><fmt:formatDate dateStyle="full"   
-							     value="${checkInDate}"/></b>. </c:if>
-							  </td>
+						<td> <html:text size="8" property="checkInDate" styleId="datepicker1"/>
+						   </td>
 						<td>Check Out Date : </td>
-						<td> <html:text size="8" property="checkOutDate"/>
-						   <a href="" onClick="cal1x.select(document.forms[0].checkOutDate,
-							'anchor1x','MM/dd/yyyy'); return false;" 
-							TITLE="cal1x.select(document.forms[0].checkOutDate,'anchor1x','MM/dd/yyyy');
-							 return false;" 
-							  NAME="anchor1x" ID="anchor1x">select</a></td>
+						<td> <html:text size="8" property="checkOutDate" styleId="datepicker2"/>
+						  </td>
 					</tr>
 					<tr>
 					<td colspan="2"><html:submit value="Search" /></td>
 					</tr>
 					</table>
 					</html:form>
-					 <DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden; 
-					  background-color:white;layer-background-color:white;"></DIV> 
+					 
 		</div>
 	</div>
 	

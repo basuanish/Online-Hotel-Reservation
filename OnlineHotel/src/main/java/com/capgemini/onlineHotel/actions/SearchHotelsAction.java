@@ -12,8 +12,10 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.DynaValidatorForm;
 
+import com.capgemini.onlineHotel.dto.HotelEntity;
 import com.capgemini.onlineHotel.dto.HotelSearch;
 import com.capgemini.onlineHotel.forms.SearchHotelsForm;
+import com.capgemini.onlineHotel.service.HotelService;
 
 public class SearchHotelsAction extends Action {
 
@@ -22,16 +24,20 @@ public class SearchHotelsAction extends Action {
 			HttpServletResponse response) throws Exception {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		System.out.println("Hello");
 		HttpSession session = request.getSession(true);
-		DynaValidatorForm  searchForm = (DynaValidatorForm )form;
+		SearchHotelsForm  searchForm = (SearchHotelsForm)form;
 		HotelSearch search = new HotelSearch();
-		search.setHotelName((String) searchForm.get("hotelName"));
-		search.setLocation((String) searchForm.get("location"));
-		java.util.Date utilDate1 = sdf.parse((String) searchForm.get("checkInDate"));
-		java.util.Date utilDate2 = sdf.parse((String) searchForm.get("checkOutDate"));
+		search.setHotelName(searchForm.getHotelName());
+		search.setLocation(searchForm.getLocation());
+		java.util.Date utilDate1 = sdf.parse(searchForm.getCheckInDate());
+		java.util.Date utilDate2 = sdf.parse(searchForm.getCheckOutDate());
 		search.setCheckInDate(new java.sql.Date(utilDate1.getTime()));
 		search.setCheckOutDate(new java.sql.Date(utilDate2.getTime()));
 		System.out.println(search);
+		HotelService service = new HotelService();
+		HotelEntity hotel = new HotelEntity();
+		hotel = service.searchHotel(search);
 		return mapping.findForward("success");
 
 	}
