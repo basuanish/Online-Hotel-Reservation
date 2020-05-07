@@ -1,4 +1,4 @@
-package com.capgemini.onlineHotel.dao;
+package com.capgemini.onlineHotel.DAO;
 
 import com.capgemini.onlineHotel.dto.HotelEntity;
 import com.capgemini.onlineHotel.dto.HotelSearch;

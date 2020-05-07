@@ -2,7 +2,7 @@ package com.capgemini.onlineHotel.daoImpl;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.capgemini.onlineHotel.dao.HotelDAO;
+import com.capgemini.onlineHotel.DAO.HotelDAO;
 import com.capgemini.onlineHotel.dto.HotelEntity;
 import com.capgemini.onlineHotel.dto.HotelSearch;
 import com.capgemini.onlineHotel.mappers.HotelMapper;
