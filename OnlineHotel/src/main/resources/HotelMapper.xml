@@ -5,7 +5,7 @@
 <mapper namespace="com.capgemini.onlineHotel.mappers.HotelMapper" >
 	
 	<select id="searchHotel" resultType="hotel" resultMap="hotelResult">
-	    SELECT * from hotel WHERE hotelName = #{hotelName} OR location = #{location}
+	    SELECT * from HOTELS WHERE HOTEL_NAME = #{hotelName} OR ADDRESS = #{location}
 	</select>
 	
 	<resultMap id="hotelResult" type="hotel">
@@ -13,13 +13,4 @@
 		<result property="hotelName" column="HOTEL_NAME"/>
 		<result property="location" column="ADDRESS"/>
 	</resultMap>
-	<insert id="insertVillage" parameterType="village"  keyProperty="id" useGeneratedKeys="true">
-		INSERT into village(name,district) VALUES(#{name}, #{district}) 	    
-	</insert>
-	<update id="updateVillage" parameterType="village">
-		UPDATE village SET name=#{name}, district =#{district} WHERE id =#{id}  	    
-	</update>
-	<delete id="deleteVillage" parameterType="int">
-		DELETE FROM village WHERE id =#{id}  	    
-	</delete>
 </mapper> 
